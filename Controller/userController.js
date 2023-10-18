@@ -13,7 +13,7 @@ module.exports.getUser = async (req, res) => {
 
 module.exports.getUserRestrictData = async (req, res) => {
     const user = await User.find({}, 'name email account_activated');
-    res.send("<h1>WELCOME TO URL SHORTENER</h1>");
+    res.send("<h1>WELCOME TO DRESS COLOUR SUGGESSTION APP</h1>");
 }
 
 module.exports.Signup = async (req, res) => {
@@ -68,7 +68,7 @@ module.exports.AccountActivation = async (req, res) => {
             return res.status(400).json({ Message: "User not found or Activated account" });
         }
 
-        user.account_activated = true
+        user.account_activated = true;
 
         user.token_activate_account = "Account Activated";
 

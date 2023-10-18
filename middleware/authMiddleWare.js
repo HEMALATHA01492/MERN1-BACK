@@ -2,14 +2,12 @@ require('dotenv').config();
 const jwt = require('jsonwebtoken');
 const Secret_Key = process.env.Secret_Key
 
-
-
 const authMiddleware = {
     verifyToken: (req, res, next) => {
         const token = req.headers.authorization;
 
         if(!token){
-            return res.status(401).json({ message: 'Authentication failed,header' });
+            return res.status(401).json({ message: 'Authentication failed-NO TOKEN,header' });
         }
         try {
             const decodedToken = jwt.verify(token, Secret_Key);
@@ -17,7 +15,7 @@ const authMiddleware = {
             next();
         } catch(error) {
             console.error('Error verifying token', error);
-            return res.status(401).json({ message: 'Authentication failed,error' });
+            return res.status(401).json({ message: 'Authentication failed-TOKEN NOT MATCHED,error' });
         }
     }
 };

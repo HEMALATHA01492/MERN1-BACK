@@ -5,6 +5,12 @@ const todaySuggestSchema = new mongoose.Schema({
     color:{
         type:String
     },
+    date:{
+        type:String
+    },
+    time:{
+        type:String
+    },
     createdon: {
         type: String,
         default:String(new Date()).slice(4,15)    

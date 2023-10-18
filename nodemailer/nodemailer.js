@@ -30,7 +30,7 @@ module.exports.NodeMailer= async (token,User_mail,link,res,sub)=>{
         const info = await transporter.sendMail({
           from: `"ADMIN" <${Email_Id}>`,
           to: User_mail,
-          subject: `Url Shortener ${sub} link`,
+          subject: `Color Suggestion ${sub} link`,
           text: link
         });
         console.log(`Mail set to ${info.messageId}`);

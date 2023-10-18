@@ -6,9 +6,9 @@ const Secret_Key = process.env.Secret_Key;
 
 module.exports.AddColor= async (req, res) =>{
     try{
-        const {color} = req.body;
-        if (!color) {
-            return res.status(404).json({ Message: "Enter your color" })
+        const {color,time,date} = req.body;
+        if (!color && !time && !date) {
+            return res.status(404).json({ Message: "Enter your color,time, date" })
           }
           const token = req.headers.authorization;
           const decodedToken = jwt.verify(token, Secret_Key);
@@ -16,6 +16,8 @@ module.exports.AddColor= async (req, res) =>{
 
           const newSuggest = new suggest({
             color,
+            time,
+            date,
             user:user._id,
           })
           await newSuggest.save();
