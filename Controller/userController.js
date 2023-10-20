@@ -45,7 +45,7 @@ module.exports.Signup = async (req, res) => {
             Math.random().toString(36).substring(2, 15) +
             Math.random().toString(36).substring(2, 15);
 
-        const link = `http://localhost:5173/accountactivation/${randomString}`;
+        const link = `https://lucent-frangipane-faa076.netlify.app/accountactivation/${randomString}`;
 
         const sub = "Account Activation"
 
@@ -133,7 +133,7 @@ module.exports.PasswordResetLink = async (req, res) => {
         await User.findByIdAndUpdate(matchedUser.id, matchedUser);
 
         //sending email for resetting
-        const link = `http://localhost:5173/PasswordReset/${randomString}`;
+        const link = `https://lucent-frangipane-faa076.netlify.app/PasswordReset/${randomString}`;
 
         const sub = "Reset password"
 
